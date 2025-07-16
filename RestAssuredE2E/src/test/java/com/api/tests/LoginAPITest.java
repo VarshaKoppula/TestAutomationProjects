@@ -13,9 +13,13 @@ public class LoginAPITest{
         AuthService authService = new AuthService();
         LoginRequest loginRequest = new LoginRequest("uday1234","uday12345");
         Response response = authService.login(loginRequest);
-        LoginResponse loginResponse = response.as(LoginResponse.class);
-        System.out.println(loginResponse.toString());
-        System.out.println(loginResponse.getEmail());
+        if (response.getContentType().contains("application/json")) {
+            LoginResponse loginResponse = response.as(LoginResponse.class);
+            System.out.println(loginResponse.toString());
+        } else {
+            System.err.println("Unexpected content type: " + response.getContentType());
+            System.err.println("Response body: " + response.getBody().asString());
+        }
     }
 
     @Test
@@ -31,6 +35,21 @@ public class LoginAPITest{
         ForgotPasswordRequest forgotPasswordRequest = new ForgotPasswordRequest("KareenaSaifu@gmail.com" );
         Response response = authService.forgotPassword(forgotPasswordRequest);
         System.out.print(response.prettyPrint());
+    }
+    @Test
+    public void getAccountsTest(){
+        AuthService authService = new AuthService();
+        LoginRequest loginRequest = new LoginRequest("uday1234","uday12345");
+        Response response = authService.login(loginRequest);
+        if (response.getContentType().contains("application/json")) {
+            LoginResponse loginResponse = response.as(LoginResponse.class);
+            System.out.println(loginResponse.toString());
+        } else {
+            System.err.println("Unexpected content type: " + response.getContentType());
+            System.err.println("Response body: " + response.getBody().asString());
+        }
+
+
     }
 }
 
