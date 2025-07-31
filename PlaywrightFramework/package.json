@@ -1,0 +1,25 @@
+{
+  "name": "playwrightautomation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "test:install": "playwright install",
+    "test:codegen": "playwright codegen",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "keywords": ["playwright", "automation", "testing", "e2e"],
+  "author": "Your Name",
+  "license": "ISC",
+  "description": "Professional Playwright Test Automation Framework for E-commerce Testing",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^22.1.0",
+    "eslint": "^8.0.0"
+  }
+}
